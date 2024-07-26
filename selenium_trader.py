@@ -13,7 +13,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 options = webdriver.ChromeOptions()
-#options.add_argument("start-maximized")
 options.add_experimental_option("excludeSwitches", ['enable-automation'])
 options.add_experimental_option('useAutomationExtension', False)
 svc = webdriver.ChromeService(executable_path=binary_path)
@@ -35,10 +34,8 @@ browser.find_element(By.CSS_SELECTOR, "[data-testid='connect-core-mobile-button'
 browser.find_element(By.CSS_SELECTOR, "[data-testid='connect-terms-checkbox']").click()
 sleep(2)
 browser.find_element(By.CSS_SELECTOR, "[data-testid='connect-terms-continue-btn']").click()
-#browser.find_element(By.CSS_SELECTOR, "[name='WalletConnect']").click()
-#uri = browser.find_element(By.CSS_SELECTOR, "[uri^='wc:']").get_attribute('uri')
 while True:
-    with open('/Users/tyler.hackett/PycharmProjects/pythonProject/buy_or_sell.txt', 'r') as buy_or_sell:
+    with open('buy_or_sell.txt', 'r') as buy_or_sell:
         try:
             avax_balance = browser.find_element(By.XPATH, "//a[@data-testid='portfolio-token-list-row-symbol' and text()='AVAX']/following::p[@data-testid='portfolio-token-list-row-value']")
             usdc_balance = browser.find_element(By.XPATH, "//a[@data-testid='portfolio-token-list-row-symbol' and text()='USDC']/following::p[@data-testid='portfolio-token-list-row-value']").text
@@ -81,4 +78,3 @@ while True:
         buy_or_sell.close()
         sleep(5)
 
-browser.quit()

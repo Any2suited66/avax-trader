@@ -5,15 +5,15 @@ import statistics
 import pandas
 import pandas as pd
 from alpaca.data.live import CryptoDataStream
-from alpaca.trading.enums import TimeInForce, OrderSide
+from alpaca.trading.enums import TimeInForce
 from alpaca.trading.requests import MarketOrderRequest
 
 from api_config import ALPACA_API_KEY, ALPACA_SECRET
 from trading_client import paper_trading_client, trading_client
 
 AVAX_SYMBOL = 'AVAXUSD'
-SMA_FIVE_MIN = 10
-SMA_TEN_MIN = 20
+SMA_TEN_MIN = 10
+SMA_TWENTY_MIN = 20
 paper = True
 
 pd.set_option('display.max_columns', 10)
